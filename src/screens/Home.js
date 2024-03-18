@@ -16,7 +16,7 @@ export default function Home({ navigation }) {
     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
   const [pokemonData, setPokemonData] = useState([]);
   const getAllPokemon = () => {
-    getAllPokemonApi(60, 0).then((response) => {
+    getAllPokemonApi(151, 0).then((response) => {
       const allPokemon = response.data.results;
       setPokemonData(allPokemon);
     });
@@ -52,15 +52,15 @@ export default function Home({ navigation }) {
           {pokemonData.map((pokemon, index) => {
             return (
               <TouchableOpacity
+                key={index}
                 onPress={() => {
                   navigation.navigate("Detail", {
                     itemId: index + 1,
-                    imgUrl: imgUrl + (index + 1) + ".png"
+                    imgUrl: imgUrl + (index + 1) + ".png",
                   });
                 }}
               >
                 <PokemonBox
-                  key={index}
                   name={
                     pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
                   }
@@ -75,10 +75,3 @@ export default function Home({ navigation }) {
   );
 }
 
-const styles = StyleSheet.create({
-  header: {
-    fontWeight: "bold",
-    backgroundColor: "red",
-    padding: 20,
-  },
-});
