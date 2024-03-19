@@ -51,7 +51,6 @@ export default function Compare({ navigation }) {
   };
 
   const getChartData = () => {
-    console.log("panggil")
     getPokemonByIdApi(firstPokemonID).then((response) => {
       const firstPokemonStats = response.data.stats;
       const stats1 = [];
