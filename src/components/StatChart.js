@@ -27,6 +27,7 @@ export default function StatChart(data) {
       </Text>
       <BarChart
         isAnimated
+        hideRules
         barWidth={26}
         noOfSections={5}
         barBorderRadius={4}
